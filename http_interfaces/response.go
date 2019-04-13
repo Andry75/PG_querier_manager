@@ -1,7 +1,8 @@
 package http_interfaces
 
 type Response interface {
-	getData() string
-	getMassage() string
-	getHttpStatus() int
+	GetPayload() string
+	GetMassage() string
+	MessageEmpty() bool
+	GetHttpStatus() int
 }
