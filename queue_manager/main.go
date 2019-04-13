@@ -7,5 +7,5 @@ func GetAvailableNode() net.IPAddr {
 }
 
 func ReleaseNode(addr net.IPAddr) {
-
+	println("Hi I'm queue")
 }

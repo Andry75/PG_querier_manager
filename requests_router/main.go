@@ -19,6 +19,7 @@ func generateRequest(query http_interfaces.Query) Request {
 		endpointName: query.GetEndpointName(),
 		payload:      query.GetPayload(),
 		ipAddress:    getNodeIpAddress(),
+		method:       query.GetMethod(),
 	}
 }
 

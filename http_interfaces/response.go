@@ -5,4 +5,5 @@ type Response interface {
 	GetMassage() string
 	MessageEmpty() bool
 	GetHttpStatus() int
+	PayloadEmpty() bool
 }

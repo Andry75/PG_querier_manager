@@ -6,4 +6,5 @@ type Request interface {
 	GetIpdAddress() net.IPAddr
 	GetEndpointName() string
 	GetPayload() string
+	GetMethod() string
 }

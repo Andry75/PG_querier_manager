@@ -6,6 +6,7 @@ type Request struct {
 	ipAddress    net.IPAddr
 	payload      string
 	endpointName string
+	method       string
 }
 
 func (r Request) GetIpdAddress() net.IPAddr {
@@ -18,4 +19,8 @@ func (r Request) GetEndpointName() string {
 
 func (r Request) GetPayload() string {
 	return r.payload
+}
+
+func (r Request) GetMethod() string {
+	return r.method
 }

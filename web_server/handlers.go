@@ -15,10 +15,10 @@ func Any(w http.ResponseWriter, r *http.Request) {
 
 func sendResponse(response http_interfaces.Response, w http.ResponseWriter) {
 	w.WriteHeader(response.GetHttpStatus())
-	if response.MessageEmpty() {
-		w.Write([]byte(response.GetPayload()))
-	} else {
+	if response.PayloadEmpty() {
 		w.Write([]byte(response.GetMassage()))
+	} else {
+		w.Write([]byte(response.GetPayload()))
 	}
 }
 
@@ -32,6 +32,7 @@ func getQuery(w http.ResponseWriter, r *http.Request) Query {
 	return Query{
 		endpointName: endpointName,
 		payload:      payload,
+		method:       r.Method,
 	}
 }
 
