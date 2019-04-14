@@ -9,9 +9,20 @@
   revision = "c5c6c98bc25355028a63748a498942a6398ccd22"
   version = "v1.7.1"
 
+[[projects]]
+  digest = "1:dc48dff981a895912c33cf272b1d869c216d058bd4025736cb481d3ceeed6872"
+  name = "github.com/tkanos/gonfig"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "e83209aed2d171bab5ffb312a1e630110481cb99"
+  version = "1.0"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = ["github.com/gorilla/mux"]
+  input-imports = [
+    "github.com/gorilla/mux",
+    "github.com/tkanos/gonfig",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
