@@ -4,5 +4,5 @@ import "net"
 
 type InstancesMasterConfig interface {
 	GetInstancesMasterIpAddress() net.IPAddr
-	GetInstancesMasterPort() int
+	GetInstancesMasterPort() string
 }

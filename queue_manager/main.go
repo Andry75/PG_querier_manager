@@ -15,8 +15,11 @@ func GetAvailableNode() net.IPAddr {
 	}
 	if len(nodeIp.String()) == 0 {
 		newNodeIp := instance_manager.DeployNewNode()
-		queues.AddNewNodeToTheQueue(newNodeIp)
-		return newNodeIp
+		if len(nodeIp.String()) != 0 {
+			queues.AddNewNodeToTheQueue(newNodeIp)
+			return newNodeIp
+		}
+		return GetAvailableNode()
 	} else {
 		go withdrawNotActiveNodes()
 		return nodeIp

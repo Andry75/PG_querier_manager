@@ -60,8 +60,8 @@ func (c Config) GetInstancesMasterIpAddress() net.IPAddr {
 	return net.IPAddr{IP: net.ParseIP(c.InstancesMaster.IpAddress)}
 }
 
-func (c Config) GetInstancesMasterPort() int {
-	return c.InstancesMaster.Port
+func (c Config) GetInstancesMasterPort() string {
+	return ":" + strconv.Itoa(c.InstancesMaster.Port)
 }
 
 func (c Config) GetConnectionString() string {
