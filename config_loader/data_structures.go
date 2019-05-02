@@ -70,3 +70,10 @@ func (c Config) GetConnectionString() string {
 		strconv.Itoa(c.Database.Port) + "/" + c.Database.DbName +
 		"?sslmode=" + c.Database.SSLMode
 }
+
+func (c Config) GetConnectionStringWithoutDB() string {
+	return c.Database.Vendor + "://" + c.Database.User + ":" +
+		c.Database.Password + "@" + c.Database.Host + ":" +
+		strconv.Itoa(c.Database.Port) + "/postgres" +
+		"?sslmode=" + c.Database.SSLMode
+}

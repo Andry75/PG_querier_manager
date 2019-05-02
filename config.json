@@ -3,10 +3,10 @@
     "vendor" : "postgres",
     "host": "localhost",
     "port": 5432,
-    "user": "postgres",
-    "password": "",
-    "db_name": "",
-    "ssl_mode": "disabled"
+    "user": "test",
+    "password": "test",
+    "db_name": "querier_manager",
+    "ssl_mode": "disable"
   },
   "web_server": {
     "port": 8080
