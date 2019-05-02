@@ -11,7 +11,7 @@ func main() {
 	// Migrate DB
 	db_migrator.Migrate()
 
-	log.Println("Migrating DB finished\n\n")
+	log.Println("Migrating DB finished")
 
 	log.Println("Starting service")
 

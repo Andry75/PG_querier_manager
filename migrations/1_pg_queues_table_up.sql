@@ -3,7 +3,7 @@ create table pg_queues
     id serial,
     ip varchar(16) not null,
     active_jobs_count int default 0 not null,
-    not_active_since timestamp not null,
+    not_active_since timestamp,
     created_at timestamp not null,
     updated_at timestamp not null
 );
