@@ -10,12 +10,17 @@ type Db struct {
 }
 
 type ConnectionString interface {
-	GetConnectionStringWithoutDB() string
-	GetConnectionString() string
+	GetConnectionStringWithoutDB() (string, error)
+	GetConnectionString() (string, error)
 }
 
 func (db *Db) Connect(connectionString ConnectionString) error {
-	db_, err := sql.Open("postgres", connectionString.GetConnectionString())
+	conStr, err := connectionString.GetConnectionString()
+	if err != nil {
+		return err
+	}
+
+	db_, err := sql.Open("postgres", conStr)
 	if err != nil {
 		return err
 	}
@@ -24,7 +29,12 @@ func (db *Db) Connect(connectionString ConnectionString) error {
 }
 
 func (db *Db) ConnectWithoutDB(connectionString ConnectionString) error {
-	db_, err := sql.Open("postgres", connectionString.GetConnectionStringWithoutDB())
+	conStr, err := connectionString.GetConnectionString()
+	if err != nil {
+		return err
+	}
+
+	db_, err := sql.Open("postgres", conStr)
 	if err != nil {
 		return err
 	}

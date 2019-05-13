@@ -54,7 +54,7 @@ func sendRequestToWithdrawNode(ip net.IPAddr) {
 	}
 	response := sendRequest(request)
 	if response.GetHttpStatus() > 299 {
-		log.Fatal(generateErrorMessage(ip, response, "Withdraw"))
+		log.Println(generateErrorMessage(ip, response, "Withdraw"))
 	}
 }
 

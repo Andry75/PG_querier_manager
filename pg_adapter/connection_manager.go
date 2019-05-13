@@ -11,11 +11,16 @@ type Db struct {
 }
 
 type ConnectionString interface {
-	GetConnectionString() string
+	GetConnectionString() (string, error)
 }
 
 func (db *Db) Connect(connectionString ConnectionString) error {
-	db_, err := sqlx.Connect("postgres", connectionString.GetConnectionString())
+	conStr, err := connectionString.GetConnectionString()
+	if err != nil {
+		return err
+	}
+
+	db_, err := sqlx.Connect("postgres", conStr)
 	if err != nil {
 		return err
 	}
